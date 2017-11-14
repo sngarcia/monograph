@@ -61,48 +61,48 @@ carrega_subset <- function(arquivo)
 ovos <- carrega_subset("dataset.csv")
 
 #ANALISE DE DADOS
-#Área do contorno
-#plot(amostra_treino$lado_a_area, col=(amostra_treino$classificacao), main="Distribuição das classes de ovos", xlab="amostras", ylab="Área do contorno", pch=16)
-#mtext("Característica: Área do Contorno", side = 3)
+#Ãrea do contorno
+#plot(amostra_treino$lado_a_area, col=(amostra_treino$classificacao), main="DistribuiÃ§Ã£o das classes de ovos", xlab="amostras", ylab="Ãrea do contorno", pch=16)
+#mtext("CaracterÃ­stica: Ãrea do Contorno", side = 3)
 #legend("topright", legend=c("B", "Extra", "Jumbo","A"),
 #       fill=unique(amostra_treino$classificacao), bty="n")
 
-#hist(amostra_treino$lado_a_area, breaks =15, main="Histograma da Área do Contorno")
+#hist(amostra_treino$lado_a_area, breaks =15, main="Histograma da Ãrea do Contorno")
 
 #Volume
-#plot(amostra_treino$volume, col=(amostra_treino$classificacao), main="Distribuição das classes de ovos", xlab="amostras", ylab="Volume (pixels cúbicos)", pch=16)
-#mtext("Característica: Volume (pixels cúbicos)", side = 3)
+#plot(amostra_treino$volume, col=(amostra_treino$classificacao), main="DistribuiÃ§Ã£o das classes de ovos", xlab="amostras", ylab="Volume (pixels cÃºbicos)", pch=16)
+#mtext("CaracterÃ­stica: Volume (pixels cÃºbicos)", side = 3)
 #legend("topright", legend=c("B", "Extra", "Jumbo","A"),
 #       fill=unique(amostra_treino$classificacao), bty="n")
 
 #hist(ovos$volume, breaks =15, main="Histograma do Volume")
 
 #Altura
-#plot(amostra_treino$lado_a_altura, col=(amostra_treino$classificacao), main="Distribuição das classes de ovos", xlab="amostras", ylab="Altura (pixels)", pch=16)
-#mtext("Característica: Altura (pixels)", side = 3)
+#plot(amostra_treino$lado_a_altura, col=(amostra_treino$classificacao), main="DistribuiÃ§Ã£o das classes de ovos", xlab="amostras", ylab="Altura (pixels)", pch=16)
+#mtext("CaracterÃ­stica: Altura (pixels)", side = 3)
 #legend("topright", legend=c("B", "Extra", "Jumbo","A"),
 #       fill=unique(amostra_treino$classificacao), bty="n")
 
 #hist(amostra_treino$lado_a_altura, breaks =15, main="Histograma da Altura")
 
 #Largura
-#plot(amostra_treino$lado_a_largura, col=(amostra_treino$classificacao), main="Distribuição das classes de ovos", xlab="amostras", ylab="Largura (pixels)", pch=16)
-#mtext("Característica: Largura (pixels)", side = 3)
+#plot(amostra_treino$lado_a_largura, col=(amostra_treino$classificacao), main="DistribuiÃ§Ã£o das classes de ovos", xlab="amostras", ylab="Largura (pixels)", pch=16)
+#mtext("CaracterÃ­stica: Largura (pixels)", side = 3)
 #legend("topright", legend=c("B", "Extra", "Jumbo","A"),
 #       fill=unique(amostra_treino$classificacao), bty="n")
 #hist(amostra_treino$lado_a_largura, breaks =15, main="Histograma da Largura")
 
-#ANÁLISE DE CORRELAÇÃO - CORRELOGRAMA
+#ANÃLISE DE CORRELAÃ‡ÃƒO - CORRELOGRAMA
 #compara <- data.frame(amostra_treino$lado_a_area, amostra_treino$lado_a_altura, amostra_treino$lado_a_largura,
 #                      amostra_treino$lado_b_area, amostra_treino$lado_b_altura, amostra_treino$lado_b_largura,
 #                     amostra_treino$volume)
 
-#colnames(compara) <- c("A-área","A-altura","A-largura","B-área", "B-altura", "B-largura", "Volume")
+#colnames(compara) <- c("A-Ã¡rea","A-altura","A-largura","B-Ã¡rea", "B-altura", "B-largura", "Volume")
 
 #gera o correlograma
 #corrgram(compara,lower.panel = panel.shade,upper.panel = panel.pie, text.panel=panel.txt,main="Correlograma entre ativos", order=TRUE)
 
-#RESOLVEMOS DISPENSAR O VOLUME COM BASE NA CORRELACAO ALTA ENTRE ESTE E A AREA ALÉM DO QUE O MESMO APRESENTA EVIDENCIAS DE MENOR NORMALIDADE NA DISTRIBUIÇÃO DOS DADOS
+#RESOLVEMOS DISPENSAR O VOLUME COM BASE NA CORRELACAO ALTA ENTRE ESTE E A AREA ALÃ‰M DO QUE O MESMO APRESENTA EVIDENCIAS DE MENOR NORMALIDADE NA DISTRIBUIÃ‡ÃƒO DOS DADOS
 #ovos <- ovos[,-c(2)]
 
 #analisar os dados em 3 d
@@ -121,7 +121,7 @@ ovos <- carrega_subset("dataset.csv")
 
 #padronizando as classes
 
-ovos <- ovos[,-c(1,6,7,8,10)] #testes sem o volume, b-largura, b-altura
+ovos <- ovos[,-c(1,6,7,8,10)] #ExecuÃ§Ã£o sem o volume, B-largura, B-altura
 
 ovos$lado_a_area <- padroniza(ovos$lado_a_area)
 ovos$lado_a_altura <- padroniza(ovos$lado_a_altura)
@@ -222,7 +222,7 @@ taxa_aprendizado <- 0.045
       erro<-erro+1
     }
   }
-  print("Classificações Erradas Treino")
+  print("ClassificaÃ§Ãµes Erradas Treino")
   print(erro)
   
   
@@ -244,7 +244,7 @@ taxa_aprendizado <- 0.045
       erro<-erro+1
     }
   }
-  print("Classificações Erradas Teste")
+  print("ClassificaÃ§Ãµes Erradas Teste")
   print(erro)
   
 #}
@@ -268,13 +268,13 @@ for(i in 1: dim(amostra_validacao)[1]){                      #
     erro<-erro+1
   }
 }
-print("Classificações Erradas Validação")
+print("ClassificaÃ§Ãµes Erradas ValidaÃ§Ã£o")
 print(erro)
 
 
 set.seed(2)
 ovos<-ovos[sample(nrow(ovos)),]
-#ovos <- ovos[,-c(1,6,7,8,10)] #remoção de volume, b-largura, b-altura
+#ovos <- ovos[,-c(1,6,7,8,10)] #remoÃ§Ã£o de volume, b-largura, b-altura
 
 yhat_final<-matrix(NA, 400, 2)
 x_final<-ovos[-c(5)]
@@ -315,7 +315,7 @@ print(paste("Erro no conjunto de teste:",erromlp_final))
 
 #CALCULO DA ACURACIA
 vetor_acuracia = sqrt((y_teste-yhat_teste)^2)
-print(paste("Acurácia: ", (length(which(vetor_acuracia == 0))*100)/length(vetor_acuracia), "%"))
+print(paste("AcurÃ¡cia: ", (length(which(vetor_acuracia == 0))*100)/length(vetor_acuracia), "%"))
 
 #PLOTANDO A CLASSIFICAO QUE A REDE FEZ
 plot3d(amostra_teste[,1:3], col=yhat_teste+1, size=8)
